@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav{
+    display: flex;
+    background-color: rgb(255, 102, 0);
+    justify-content: space-around;
+    /* padding: 10px 0; */
+    height: 50px;
+    align-items: center;
+    color: rgb(255, 215, 188);
+}
+
+nav .logo{
+    font-family: 'Pacifico', cursive;
+    /* untuk menentukan spasi antar karakter dalam teks */
+    letter-spacing: 3px;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 40%;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: rgb(255, 215, 188);
+    font-size: 0.8em;
+}
+
+nav ul li a:hover{
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 215, 188);
+    padding: 5px;
+}
+
+/* Hamburger Menu */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    height: 28px;
+    width: 40px;
+    left: -6px;
+    top: -4px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu-toggle span{
+    background-color: rgb(255, 215, 188);
+    display: block;
+    height: 3px;
+    width: 28px;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.menu-toggle span:nth-child(2){
+    /* value horizontal vertikal */
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:last-child{
+    /* transform-origin = adalah titik referensi untuk melakukan tranformasi */
+    /* value transform-origin: horizontal vertikal */
+    transform-origin: 0 0;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    /* translate = untuk memindahkan element sesaui x dan y */
+    /* value translate horizontal vertikal */
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: white;
+}
+
+.menu-toggle input:checked ~ span:last-child{
+    transform: rotate(-45deg) translate(-2px, 0px);
+    background-color: white;
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/* Responsive Breakpoint */
+/* Ukuran Tablet */
+@media screen and (max-width: 768px){
+    nav ul{
+        width: 50%;
+    }
+}
+
+/* Ukuran Mobile */
+@media screen and (max-width: 576px){
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 102, 0);
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

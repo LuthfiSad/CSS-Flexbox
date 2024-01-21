@@ -1,0 +1,77 @@
+/* flexbox */
+/* display : flex, inline-flex; untuk mengubah parent dan isinya menjadi flexbox */
+/* yang bisa di tambahkan di container / parent nya =  */
+
+/* flex-direction untuk menentukan arah vertikal atau hirozontal, dan bisa di di balik juga dengan reverse */
+/* value flex-direction : row, row-reverse, column, column-reverse */
+/* row (default / kiri ke kanan), row-reverse = arahnya dari kanan ke kiri */
+/* column = arahnya dari atas ke bawah, column-reverse = arahnya dari bawah ke atas */
+
+/* flex-wrap untuk mengatur ketika element sudah tidak muat dengan parent nya */
+/* value flex-wrap : nowrap, wrap, wrap-reverse */
+/* no-wrap (default / akan mengikuti / responsive dengan width nya) */
+/* wrap = ketika tidak muat akan kebawah membuat baris baru di bawah */
+/* wrap-reverse = ketika tidak muat akan kebawah membuat baris baru di atas */
+
+/* justify-content untuk mengatur posisi secara horizontal */
+/* value justify-conten : flex-start, flex-end, center, space-between, space-around, space-evenly */
+/* flex-start = default/posisinya dikiri, flex-end = posisinya akan ke kanan tanpa mengubah urutan */
+/* center = posisi akan ketengah secara vertikal*/
+/* space-between = memberi jarak yang sama, tetapi akan mentok di start dan end secara horizontal */
+/* space-around = memberi jarak yang sama, tetapi element di tengah akan terpisah jaraknya, dengan jarak element sebelahnya */
+/* space-evenly = memberi jarak yang benar benar sama, tanpa ada perbedaan 2 jarak element */
+
+/* align-items untuk mengatur posisi secara vertikal */
+/* value align-items : flex-start, flex-end, center, stretch, baseline */
+/* flex-start = default/posisinya diatas, flex-end = posisinya ke bawah tanpa mengubah urutan */
+/* center = posisi akan ketengah secara horizontal */
+/* stretch = full size secara vertikal, kalau tidak ada properti height di element */
+/* baseline = sejajar dengan text di semua element */
+
+/* align-content sama seperti align-items cuman lebih dari 1 baris */
+/* value align-content : flex-start, flex-end, center, stretch, space-between, space-around */
+/* flex-start = default/posisinya diatas, flex-end = posisinya ke bawah tanpa mengubah urutan */
+/* center = posisi akan ketengah secara horizontal */
+/* stretch = full size secara vertikal, kalau tidak ada properti height di element */
+/* space-between = memberi jarak yang sama, tetapi akan mentok di start dan end secara vertikal  */
+/* space-around = memberi jarak yang sama, tetapi element di tengah akan terpisah jaraknya, dengan jarak element bawah/atasnya */
+
+.container{
+    width: 600px;
+    height: 300px;
+    border: 5px solid #333;
+    margin: 30px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    /* tanpa menggunakan float left lalu clear, akan ke kiri semua menggunakan flexbox */
+    display: flex;
+    /* contoh flex-direction */
+    /* flex-direction: row-reverse; */
+    /* contoh flex-wrap */
+    /* flex-wrap: wrap; */
+    /* contoh justify-content */
+    justify-content: center;
+    /* contoh align-items */
+    /* align-items: center; */
+}
+
+/* yang bisa di tambahkan di items / element nya =  */
+/* order = umtuk mengatur urutan dari element, default order = 0 */
+/* jadi jika 1 element di beri order = 1, maka urutannya akan paling belakang, karena element lain order default nya bernilai 0 */
+/* contoh order */
+.satu{ order: 2; } .dua{ order:4; } .tiga{ order:3; } .empat{ order:1; }
+
+/* flex-grow / flex = untuk mengatur ukuran dari element / itemsnya sampai memenuhi container / parent nya */
+/* asal tidak mengatur width, height dan align-items(karena default nya stretch) nya */
+/* yang di atur hanya height di parent nya saja, agar bisa menyesuaikan */
+.satu{ flex-grow: 5; } .dua{ flex-grow:1; } .tiga{ flex-grow:3; } .empat{ flex-grow:1; }
+
+/* align-self = sama seperti align-item cuman align-self hanya mengatur 1 element / item saja */
+/* biasanya digunakan untuk berbeda dari default yang di berikan align-item pada parent / container */
+/* value align-self : auto, flex-start, flex-end, center, stretch, baseline */
+.container div{
+    /* width: 120px;
+    height: 120px; */
+    background-color: rgb(0, 238, 255);
+    margin: 2px;
+}
